@@ -1,8 +1,8 @@
 # hello-world-lib
 
-
 Let's publish it to jitpack
 
+[![](https://jitpack.io/v/jangalinski/hello-world-lib.svg)](https://jitpack.io/#jangalinski/hello-world-lib)
 
 
 
