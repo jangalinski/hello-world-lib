@@ -25,10 +25,11 @@ dependencies {
 
 
 githubRelease {
+    val snapshot = (project.version as String).endsWith("-SNAPSHOT")
     setToken(properties["github.token"] as String)
-    setOverwrite(true)
-    setPrerelease((project.version as String).endsWith("-SNAPSHOT"))
-    releaseAssets(File("${rootProject.buildDir}/core-${project.version}.zip"))
+    setOverwrite(snapshot)
+    setPrerelease(snapshot)
+    //releaseAssets(File("${rootProject.buildDir}/core-${project.version}.zip"))
 }
 
 
