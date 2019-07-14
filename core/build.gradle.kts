@@ -11,6 +11,11 @@ dependencies {
     testImplementation(kotlin("test"))
     testImplementation(kotlin("test-junit"))
 }
+
+repositories {
+    jcenter()
+}
+
 //
 //
 //val sourcesJar by tasks.registering(Jar::class) {
