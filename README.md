@@ -16,3 +16,7 @@ Let's publish it to jitpack
 * gradle init kotlin library project
 * create core and example src trees 
 * create buildSrc/
+
+
+
+Download manually: `mvn dependency:get -DremoteRepositories=https://jitpack.io -Dartifact=com.github.jangalinski:hello-world-lib:master-SNAPSHOT`
