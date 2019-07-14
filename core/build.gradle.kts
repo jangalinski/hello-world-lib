@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm")
     `maven-publish`
+    maven
 }
 
 dependencies {
@@ -29,3 +30,22 @@ publishing {
         }
     }
 }
+
+tasks.register<Zip>("zipArchive") {
+    val (suf,dom,name) = "${project.group}".split(".")
+    val path = "${project.group}".replace(".","/")
+    from("${rootProject.buildDir}/repo/$path/${project.name}/${project.version}")
+    archiveFileName.set("${project.name}-${project.version}.zip")
+    destinationDirectory.set(File("${rootProject.buildDir}"))
+ //   destinationDirectory = "${rootProject.buildDir}"
+}
+
+
+//
+//task myZip(type: Zip) {
+//    from 'Reports/'
+//    include '*'
+//    include '*/*' //to include contents of a folder present inside Reports directory
+//    archiveName 'Reports.zip'
+//    destinationDir(file('/dir1/dir2/dir3/'))
+//}

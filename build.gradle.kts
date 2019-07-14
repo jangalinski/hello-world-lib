@@ -2,7 +2,6 @@ plugins {
     base
     idea
 
-
     id("com.github.breadmoirai.github-release") version Versions.plugin.githubRelease
 
     kotlin("jvm") version Versions.kotlin apply false
@@ -27,9 +26,9 @@ dependencies {
 
 githubRelease {
     setToken(properties["github.token"] as String)
-    setPrerelease(true)
     setOverwrite(true)
     setPrerelease((project.version as String).endsWith("-SNAPSHOT"))
+    releaseAssets(File("${rootProject.buildDir}/core-${project.version}.zip"))
 }
 
 
