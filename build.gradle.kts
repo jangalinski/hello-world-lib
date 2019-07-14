@@ -5,6 +5,8 @@ plugins {
     id("com.github.breadmoirai.github-release") version Versions.plugin.githubRelease
 
     kotlin("jvm") version Versions.kotlin apply false
+    
+    maven
 }
 
 allprojects {
