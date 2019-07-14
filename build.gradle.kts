@@ -9,7 +9,7 @@ plugins {
 
 allprojects {
     group = "com.github.jangalinski"
-    version = "0.1.0-SNAPSHOT"
+    version = "0.1.1-SNAPSHOT"
 
     apply {
         from("${rootProject.rootDir}/gradle/repositories.gradle.kts")
