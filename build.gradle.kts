@@ -4,12 +4,12 @@ plugins {
 
     id("com.github.breadmoirai.github-release") version Versions.plugin.githubRelease
 
-    kotlin("jvm") version Versions.kotlin apply false
+    //kotlin("jvm") version Versions.kotlin apply false
 }
 
 allprojects {
     group = "com.github.jangalinski"
-    version = "0.1.1-SNAPSHOT"
+    version = "0.1.2-SNAPSHOT"
 
     apply {
         from("${rootProject.rootDir}/gradle/repositories.gradle.kts")
