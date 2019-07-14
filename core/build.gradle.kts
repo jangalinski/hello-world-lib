@@ -1,20 +1,31 @@
 plugins {
     kotlin("jvm")
-}
-
-repositories {
-    // Use jcenter for resolving dependencies.
-    // You can declare any Maven/Ivy/file repository here.
-    jcenter()
+    `maven-publish`
 }
 
 dependencies {
-    // Use the Kotlin JDK 8 standard library.
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    api("io.arrow-kt:arrow-core:0.8.2")
+    implementation(kotlin("stdlib-jdk8"))
 
-    // Use the Kotlin test library.
-    testImplementation("org.jetbrains.kotlin:kotlin-test")
+    // Use the Kotlin test librar, Use the Kotlin JUnit integration.
+    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit"))
+}
 
-    // Use the Kotlin JUnit integration.
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+
+val sourcesJar by tasks.registering(Jar::class) {
+    classifier = "sources"
+    from(sourceSets.main.get().allSource)
+}
+
+publishing {
+    repositories {
+        maven(uri("${rootProject.buildDir}/repo"))
+    }
+    publications {
+        register("mavenJava", MavenPublication::class) {
+            from(components["java"])
+            artifact(sourcesJar.get())
+        }
+    }
 }
